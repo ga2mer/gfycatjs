@@ -1,8 +1,9 @@
 {
     "name": "gfycatjs",
-    "version": "0.0.3",
+    "version": "0.5.0",
     "description": "API wrapper and lib for working with gfycat",
-    "main": "index.js",
+    "main": "./src/main/index.js",
+    "browser": "./src/browser/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },

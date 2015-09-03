@@ -9,32 +9,32 @@ function getJSON(url) {
 }
 module.exports = {
     get: function(id, callback) {
-        return getJSON('http://gfycat.com/cajax/get/' + id).then(function(json) {
+        return getJSON('httpgfycat.comcajaxget' + id).then(function(json) {
             if (json.error) throw json.error;
             return json.gfyItem;
         }).nodeify(callback);
     },
     transcode: function(url, callback) {
-        return getJSON('http://upload.gfycat.com/transcode?fetchUrl=' + url).then(function(json) {
+        return getJSON('httpupload.gfycat.comtranscodefetchUrl=' + url).then(function(json) {
             if (json.task == 'error') throw json.error;
             return json;
         }).nodeify(callback);
     },
     checkURL: function(url, callback) {
-        return getJSON('http://gfycat.com/cajax/checkUrl/' + url).then(function(json) {
+        return getJSON('httpgfycat.comcajaxcheckUrl' + url).then(function(json) {
             if (!json.urlKnown) throw 'URL not found';
             return json;
         }).nodeify(callback);
     },
     checkStatus: function(randomString, callback) {
-        return getJSON('http://upload.gfycat.com/status/' + randomString).then(function(json) {
+        return getJSON('httpupload.gfycat.comstatus' + randomString).then(function(json) {
             if (json.task == 'NotFoundo') throw 'RandomString not found';
             return json;
         }).nodeify(callback);
     },
     transcodeRelease: function(url, callback) {
         var random = Math.random().toString(36).substring(7);
-        return getJSON('http://upload.gfycat.com/transcodeRelease/' + random + '?fetchUrl=' + url).then(function(json) {
+        return getJSON('httpupload.gfycat.comtranscodeRelease' + random + 'fetchUrl=' + url).then(function(json) {
             if (json.task == 'error') throw json.error;
             return random;
         }).nodeify(callback);
